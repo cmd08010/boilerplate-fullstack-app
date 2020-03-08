@@ -2,7 +2,6 @@ const pg = require("pg")
 const { Client } = pg
 const uuid = require("uuid/v4")
 const client = new Client("postgres://localhost/acme_dictionary")
-const faker = require("faker")
 
 client.connect()
 
