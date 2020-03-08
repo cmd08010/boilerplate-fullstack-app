@@ -10,16 +10,14 @@ const bodyParser = require("body-parser")
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms"))
 app.use(bodyParser.json())
 
-
-
 app.use(express.static("assets"))
 app.get("", (req, res) => {
   res.sendFile(path.join(__dirname + "/index.html"))
 })
 
-app.post("/api/", (req,res,next)=>{})
-app.delete("/api/", (req,res,next)=>{})
-app.put("/api/", (req,res,next)=>{})
+app.post("api/", (req, res, next) => {})
+app.delete("api/", (req, res, next) => {})
+app.put("api/", (req, res, next) => {})
 
 db.sync()
   .then(() => {
