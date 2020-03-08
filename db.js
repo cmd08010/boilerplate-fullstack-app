@@ -1,7 +1,9 @@
 const pg = require("pg")
 const { Client } = pg
 const uuid = require("uuid/v4")
-const client = new Client("postgres://localhost/acme_dictionary")
+const client = new Client(
+  process.env.DATABASE_URL || "postgres://localhost/acme_dictionary"
+)
 
 client.connect()
 

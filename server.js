@@ -6,8 +6,8 @@ const morgan = require("morgan")
 const fs = require("fs")
 const db = require("./db")
 const bodyParser = require("body-parser")
+const port = process.env.PORT || 3000
 
-const port = 3000
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms"))
 app.use(bodyParser.json())
 
