@@ -16,14 +16,26 @@ app.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname + "/index.html"))
 })
 
+app.get("/api/things", (req, res, next) => {
+  db.getThings().then(response => res.send(response))
+})
+
+app.get("/api/users", (req, res, next) => {
+  db.getThings().then(response => res.send(response))
+})
+
+app.get("/api/things/:id", (req, res, next) => {
+  db.getThing(req.params.id).then(response => res.send(response))
+})
+
 app.post("/api/", (req, res, next) => {
   console.log("wow")
 })
-app.delete("/api/", (req, res, next) => {
-  console.log("wow")
+app.delete("/api/things/:id", (req, res, next) => {
+  db.deleteThing(req.params.id).then(response => res.sendStatus(200))
 })
 app.put("/api/", (req, res, next) => {
-  console.log("wow")
+  db.updateThing().then(response => res.send(response))
 })
 
 db.sync()
