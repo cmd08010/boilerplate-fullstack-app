@@ -11,7 +11,9 @@ const port = process.env.PORT || 3000
 app.use(morgan(":method :url :status :res[content-length] - :response-time ms"))
 app.use(bodyParser.json())
 
-app.use(express.static("assets"))
+app.use("/dist", express.static(path.join(__dirname, "dist")))
+
+//app.use(express.static("assets"))
 app.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname + "/index.html"))
 })
